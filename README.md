@@ -1,0 +1,1 @@
+This is the program that the Campion Day hopefully runs off of, please forgive any bad language, that's my way of expressing love to GitHub and my own programming skills... if you want to make modifications, do it at your own risk or better yet just find a way to ask me and I'll probably have a small cry and deal with it <3
