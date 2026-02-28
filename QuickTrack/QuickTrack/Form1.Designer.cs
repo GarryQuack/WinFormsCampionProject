@@ -28,27 +28,56 @@
         /// </summary>
         private void InitializeComponent()
         {
-            label1 = new Label();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
+            Title = new Label();
+            button1 = new Button();
+            label2 = new Label();
             SuspendLayout();
             // 
-            // label1
+            // Title
             // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Roobert", 27.7499962F, FontStyle.Bold | FontStyle.Underline, GraphicsUnit.Point, 0);
-            label1.Location = new Point(0, 0);
-            label1.Name = "label1";
-            label1.Size = new Size(215, 44);
-            label1.TabIndex = 0;
-            label1.Text = "QuickTrack";
+            Title.AutoSize = true;
+            Title.Font = new Font("Roobert", 27.7499962F, FontStyle.Bold | FontStyle.Underline, GraphicsUnit.Point, 0);
+            Title.Location = new Point(0, 0);
+            Title.Name = "Title";
+            Title.Size = new Size(215, 44);
+            Title.TabIndex = 0;
+            Title.Text = "QuickTrack";
+            // 
+            // button1
+            // 
+            button1.ForeColor = SystemColors.ActiveCaptionText;
+            button1.Location = new Point(12, 89);
+            button1.Name = "button1";
+            button1.Size = new Size(155, 53);
+            button1.TabIndex = 1;
+            button1.Text = "Add Runner";
+            button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
+            button1.Font = new Font("Roobert", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Font = new Font("Roobert", 9.749999F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label2.Location = new Point(12, 154);
+            label2.Name = "label2";
+            label2.Size = new Size(101, 15);
+            label2.TabIndex = 2;
+            label2.Text = "No Name Entered";
+            label2.Visible = false;
             // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.Maroon;
-            ClientSize = new Size(1600, 750);
-            Controls.Add(label1);
+            ClientSize = new Size(1264, 681);
+            Controls.Add(label2);
+            Controls.Add(button1);
+            Controls.Add(Title);
             ForeColor = SystemColors.Control;
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "Form1";
             Text = "QuickTrack";
             ResumeLayout(false);
@@ -57,6 +86,8 @@
 
         #endregion
 
-        private Label label1;
+        private Label Title;
+        private Button button1;
+        private Label label2;
     }
 }
