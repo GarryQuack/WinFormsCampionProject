@@ -35,7 +35,7 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Roobert", 27.7499962F, FontStyle.Bold | FontStyle.Underline, GraphicsUnit.Point, 0);
-            label1.Location = new Point(-3, -1);
+            label1.Location = new Point(0, 0);
             label1.Name = "label1";
             label1.Size = new Size(215, 44);
             label1.TabIndex = 0;
@@ -46,7 +46,7 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.Maroon;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(1600, 750);
             Controls.Add(label1);
             ForeColor = SystemColors.Control;
             Name = "Form1";
