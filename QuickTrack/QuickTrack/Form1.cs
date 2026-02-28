@@ -1,5 +1,3 @@
-using IronBarCode;
-
 namespace QuickTrack
 {
     public partial class Form1 : Form
@@ -10,7 +8,6 @@ namespace QuickTrack
         {
             InitializeComponent();
         }
-
         private void Form1_Load(object sender, EventArgs e)
         {
         }
@@ -24,7 +21,5 @@ namespace QuickTrack
         {
             PrintBarcode(RunnerName);
         }
-
-
     }
 }
