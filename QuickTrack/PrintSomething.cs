@@ -39,12 +39,14 @@ namespace QuickTrack
         {
             if (_barcodeBitmap != null)
             {
+                // Finding bounds and placing the barcode in one of 8 spaces
                 var bounds = e.MarginBounds;
                 float scale = Math.Min(1f, (float)bounds.Width / _barcodeBitmap.Width);
                 int drawWidth = (int)(_barcodeBitmap.Width * scale);
                 int drawHeight = (int)(_barcodeBitmap.Height * scale);
-                int x = bounds.Left + (bounds.Width - drawWidth) / 2;
-                int y = bounds.Top;
+                int x = bounds.Left;
+                //int x = bounds.Left + (bounds.Width - drawWidth);
+                int y = bounds.Top + (bounds.Height - drawHeight) / 4;
                 e.Graphics.DrawImage(_barcodeBitmap, x, y, drawWidth, drawHeight);
             }
 
