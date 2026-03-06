@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.IO;
 using System.Text.Json;
 
@@ -6,7 +6,7 @@ namespace QuickTrack
 {
 	public partial class Form1
 	{
-		string filePath;
+		public string filePath;
 		bool fileMade = false;
 		int Position { get; set; }
 		int Time { get; set; }
