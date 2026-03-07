@@ -54,5 +54,55 @@ namespace QuickTrack
         {
 
         }
+
+        private void RaceStart_Click(object sender, EventArgs e)
+        {
+            StartRace();
+            TimeKeeping.Text = "Race has started!";
+            TimeKeeping.ForeColor = Color.Green;
+        }
+
+        private void ButtonFinishRace_Click(object sender, EventArgs e)
+        {
+            stopwatch.Stop();
+
+            TimeKeeping.Text = "Race has finished!";
+            TimeKeeping.ForeColor = Color.Red;
+
+            FinishRace();
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            Time.Text = stopwatch.Elapsed.ToString(@"mm\:ss\.ffff");
+        }
+
+        private Size originalFormSize;
+        private Dictionary<Control, Rectangle> ControlBounds = new Dictionary<Control, Rectangle>();
+
+        private void Form1_Load_1(object sender, EventArgs e)
+        {
+            originalFormSize = this.Size;
+            foreach (Control control in this.Controls)
+            {
+                ControlBounds[control] = control.Bounds;
+            }
+        }
+
+        private void Form1_Resize(object sender, EventArgs e)
+        {
+            float xRatio = (float)this.Size.Width / originalFormSize.Width;
+            float yRatio = (float)this.Size.Height / originalFormSize.Height;
+            foreach (Control control in this.Controls)
+            {
+                Rectangle originalBounds = ControlBounds[control];
+                control.SetBounds(
+                    (int)(originalBounds.X * xRatio),
+                    (int)(originalBounds.Y * yRatio),
+                    (int)(originalBounds.Width * xRatio),
+                    (int)(originalBounds.Height * yRatio)
+                );
+            }
+        }
     }
 }

@@ -9,7 +9,7 @@ namespace QuickTrack
 		public string filePath;
 		bool fileMade = false;
 		int Position { get; set; }
-		int Time { get; set; }
+		int ElapsedTime { get; set; }
 		private void SerializingSaving(string name)
 		{
 			if (!fileMade)
@@ -25,7 +25,7 @@ namespace QuickTrack
 			}
 			else
 			{
-				string jsonString = JsonSerializer.Serialize(new { Name = name, Position, Time });
+				string jsonString = JsonSerializer.Serialize(new { Name = name, Position, Time = ElapsedTime });
 				File.AppendAllText(filePath, jsonString + "\n");
 			}
 		}
