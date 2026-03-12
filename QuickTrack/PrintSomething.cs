@@ -73,12 +73,7 @@ namespace QuickTrack
                 string code = _queuedCodes[_currentPrintIndex];
 
                 // Creates the runner into a barcode, resizes, adds name underneath, and converts to bitmap
-                using var bmp = BarcodeWriter
-                    .CreateBarcode(code, BarcodeEncoding.Code128)
-                    .ResizeTo(250, 100)
-                    .AddBarcodeValueTextBelowBarcode(valueFont, Color.Black, 5)
-                    .SetMargins(10)
-                    .ToBitmap();
+                using var bmp;
 
                 // Finds the column and row for current barcode
                 int col = i % columns;
