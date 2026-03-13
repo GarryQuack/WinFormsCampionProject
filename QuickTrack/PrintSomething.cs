@@ -3,8 +3,6 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Drawing.Printing;
 using System.Windows.Forms;
-using IronBarCode;
-
 namespace QuickTrack
 {
     public partial class Form1
