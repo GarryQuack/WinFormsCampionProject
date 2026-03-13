@@ -69,43 +69,45 @@ namespace QuickTrack
             for (int i = 0; i < perPage && _currentPrintIndex < _queuedCodes.Count; i++)
             {
                 string code = _queuedCodes[_currentPrintIndex];
+                /*
+                                // Creates the runner into a barcode, resizes, adds name underneath, and converts to bitmap
+                                using var bmp;
 
-                // Creates the runner into a barcode, resizes, adds name underneath, and converts to bitmap
-                using var bmp;
+                                // Finds the column and row for current barcode
+                                int col = i % columns;
+                                int row = i / columns;
+                                // Finds the top left corner of the cell including some padding
+                                int cellX = bounds.Left + col * cellW + padding;
+                                int cellY = bounds.Top + row * cellH + padding;
+                                // Calculates the available width and height for the barcode after padding
+                                int availW = cellW - padding * 2;
+                                int availH = cellH - padding * 2;
 
-                // Finds the column and row for current barcode
-                int col = i % columns;
-                int row = i / columns;
-                // Finds the top left corner of the cell including some padding
-                int cellX = bounds.Left + col * cellW + padding;
-                int cellY = bounds.Top + row * cellH + padding;
-                // Calculates the available width and height for the barcode after padding
-                int availW = cellW - padding * 2;
-                int availH = cellH - padding * 2;
+                                // Scales the barcode while not squashing or stretching it
+                                float scale = Math.Min((float)availW / bmp.Width, (float)availH / bmp.Height);
+                                int drawW = (int)(bmp.Width * scale);
+                                int drawH = (int)(bmp.Height * scale);
+                                // Centers the barcode in the cell
+                                int drawX = cellX + (availW - drawW) / 2;
+                                int drawY = cellY + (availH - drawH) / 2;
 
-                // Scales the barcode while not squashing or stretching it
-                float scale = Math.Min((float)availW / bmp.Width, (float)availH / bmp.Height);
-                int drawW = (int)(bmp.Width * scale);
-                int drawH = (int)(bmp.Height * scale);
-                // Centers the barcode in the cell
-                int drawX = cellX + (availW - drawW) / 2;
-                int drawY = cellY + (availH - drawH) / 2;
+                                // Draws the barcode using all calculations
+                                e.Graphics.DrawImage(bmp, drawX, drawY, drawW, drawH);
+                                // Moves to next barcode and adds to count to make sure it doesn't go out of bounds
+                                drawn++;
+                                _currentPrintIndex++;
+                            }
 
-                // Draws the barcode using all calculations
-                e.Graphics.DrawImage(bmp, drawX, drawY, drawW, drawH);
-                // Moves to next barcode and adds to count to make sure it doesn't go out of bounds
-                drawn++;
-                _currentPrintIndex++;
+                            // If there are more barcodes needed to be printed, adds more pages
+                            e.HasMorePages = _currentPrintIndex < _queuedCodes.Count;
+
+                            // Clear queue after final page printed
+                            if (!e.HasMorePages)
+                                _queuedCodes.Clear();
+                */
             }
 
-            // If there are more barcodes needed to be printed, adds more pages
-            e.HasMorePages = _currentPrintIndex < _queuedCodes.Count;
-
-            // Clear queue after final page printed
-            if (!e.HasMorePages)
-                _queuedCodes.Clear();
         }
-
 
     }
 }
