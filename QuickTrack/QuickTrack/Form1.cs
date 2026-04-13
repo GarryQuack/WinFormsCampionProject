@@ -7,6 +7,11 @@ namespace QuickTrack
         public Form1()
         {
             InitializeComponent();
+            originalFormSize = this.Size;
+            foreach (Control control in this.Controls)
+            {
+                ControlBounds[control] = control.Bounds;
+            }
         }
         private void Form1_Load(object sender, EventArgs e)
         {
@@ -79,15 +84,6 @@ namespace QuickTrack
 
         private Size originalFormSize;
         private Dictionary<Control, Rectangle> ControlBounds = new Dictionary<Control, Rectangle>();
-
-        private void Form1_Load_1(object sender, EventArgs e)
-        {
-            originalFormSize = this.Size;
-            foreach (Control control in this.Controls)
-            {
-                ControlBounds[control] = control.Bounds;
-            }
-        }
 
         private void Form1_Resize(object sender, EventArgs e)
         {
