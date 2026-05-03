@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Drawing;
-using System.Drawing.Printing;
-using System.Windows.Forms;
-using IronBarCode;
+﻿using System.Drawing.Printing;
+using ZXing;
+using ZXing.Windows.Compatibility;
 
 namespace QuickTrack
 {
@@ -25,33 +22,20 @@ namespace QuickTrack
             _queuedCodes.Add(textToEncode);
         }
 
-        // Prints all the queued barcodes
-        public int PrintQueuedBarcodes()
+        // Creating the barcode using ZXing
+        public Bitmap CreatingBarcode(string textToEncode)
         {
-            if (_queuedCodes.Count == 0)
-                return -1;
-
-            // Reset print index for new print job
-            _currentPrintIndex = 0;
-            var pd = new PrintDocument();
-            pd.PrintPage += PrintQueuedPage;
-
-            // Preview the page before it's printed
-            using (var preview = new PrintPreviewDialog { Document = pd })
+            var writer = new BarcodeWriter
             {
-                preview.ShowDialog(this);
-            }
-
-            // Show the print dialog to select printer and settings before finally printing
-            using (var printDialog = new PrintDialog { Document = pd })
-            {
-                if (printDialog.ShowDialog(this) == DialogResult.OK)
+                Format = BarcodeFormat.CODE_128,
+                Options = new ZXing.Common.EncodingOptions
                 {
-                    pd.Print();
+                    Height = 100,
+                    Width = 300,
+                    Margin = 1
                 }
-            }
-
-            return 1;
+            };
+            return writer.Write(textToEncode);
         }
 
         // Puts the barcodes on the page 2x4 allowing saved paper and smaller size to fit the runners
@@ -73,7 +57,7 @@ namespace QuickTrack
                 string code = _queuedCodes[_currentPrintIndex];
 
                 // Creates the runner into a barcode, resizes, adds name underneath, and converts to bitmap
-                using var bmp;
+                var bmp = CreatingBarcode(code);
 
                 // Finds the column and row for current barcode
                 int col = i % columns;
@@ -106,8 +90,37 @@ namespace QuickTrack
             // Clear queue after final page printed
             if (!e.HasMorePages)
                 _queuedCodes.Clear();
+
         }
 
+        // Gives the user a preview of what it'll look like and asks if they want to print
+        public int AskUserToPrint()
+        {
+            if (_queuedCodes.Count == 0)
+                return -1;
+
+            // Reset print index for new print job
+            _currentPrintIndex = 0;
+            var pd = new PrintDocument();
+            pd.PrintPage += PrintQueuedPage;
+
+            // Preview the page before it's printed
+            using (var preview = new PrintPreviewDialog { Document = pd })
+            {
+                preview.ShowDialog(this);
+            }
+
+            // Show the print dialog to select printer and settings before finally printing
+            using (var printDialog = new PrintDialog { Document = pd })
+            {
+                if (printDialog.ShowDialog(this) == DialogResult.OK)
+                {
+                    pd.Print();
+                }
+            }
+
+            return 1;
+        }
 
     }
 }

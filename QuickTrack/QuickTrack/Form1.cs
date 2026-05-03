@@ -44,7 +44,7 @@ namespace QuickTrack
             if (dialogresult == DialogResult.Yes)
             {
                 int result;
-                result = PrintQueuedBarcodes();
+                result = AskUserToPrint();
                 if (result == 1)
                 {
                     label2.Text = "Printing...";

@@ -253,7 +253,7 @@
             Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "Form1";
             Text = "QuickTrack";
-            Load += Form1_Load_1;
+            Load += Form1_Load;
             Resize += Form1_Resize;
             ResumeLayout(false);
             PerformLayout();

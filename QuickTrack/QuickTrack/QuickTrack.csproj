@@ -13,6 +13,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Remove="..\MainForm.cs" />
     <Compile Remove="..\QuickTrack.UnitTests\Form1Tests.cs" />
     <Compile Remove="..\QuickTrack.UnitTests\obj\Debug\net10.0-windows\.NETCoreApp,Version=v10.0.AssemblyAttributes.cs" />
     <Compile Remove="..\QuickTrack.UnitTests\obj\Debug\net10.0-windows\QuickTrack.UnitTests.AssemblyInfo.cs" />
@@ -20,6 +21,11 @@
     <Compile Remove="..\QuickTrack.UnitTests\obj\Debug\net10.0\.NETCoreApp,Version=v10.0.AssemblyAttributes.cs" />
     <Compile Remove="..\QuickTrack.UnitTests\obj\Debug\net10.0\QuickTrack.UnitTests.AssemblyInfo.cs" />
     <Compile Remove="..\QuickTrack.UnitTests\obj\Debug\net10.0\QuickTrack.UnitTests.GlobalUsings.g.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="ZXing.Net" Version="0.16.11" />
+    <PackageReference Include="ZXing.Net.Bindings.Windows.Compatibility" Version="0.16.14" />
   </ItemGroup>
 
   <ItemGroup>
