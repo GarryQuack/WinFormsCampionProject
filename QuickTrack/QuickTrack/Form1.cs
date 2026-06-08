@@ -24,6 +24,7 @@ namespace QuickTrack
         private void button1_Click(object sender, EventArgs e)
         {
             QueueBarcode(RunnerName);
+            textBox1.Text = "";
             label2.Text = "Name Added";
             label2.Visible = true;
         }
@@ -57,7 +58,7 @@ namespace QuickTrack
 
         private void button3_Click(object sender, EventArgs e)
         {
-
+            Input_End.Text = "";
         }
 
         private void RaceStart_Click(object sender, EventArgs e)

@@ -39,7 +39,7 @@
             label4 = new Label();
             FinishRunner = new Button();
             label5 = new Label();
-            textBox2 = new TextBox();
+            Input_End = new TextBox();
             label6 = new Label();
             ButtonFinishRace = new Button();
             TitleLabel = new Label();
@@ -154,15 +154,15 @@
             label5.TabIndex = 12;
             label5.Text = "Enter a name:";
             // 
-            // textBox2
+            // Input_End
             // 
-            textBox2.Location = new Point(90, 705);
-            textBox2.Margin = new Padding(4, 5, 4, 5);
-            textBox2.MaxLength = 128;
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(551, 31);
-            textBox2.TabIndex = 11;
-            textBox2.WordWrap = false;
+            Input_End.Location = new Point(90, 705);
+            Input_End.Margin = new Padding(4, 5, 4, 5);
+            Input_End.MaxLength = 128;
+            Input_End.Name = "Input_End";
+            Input_End.Size = new Size(551, 31);
+            Input_End.TabIndex = 11;
+            Input_End.WordWrap = false;
             // 
             // label6
             // 
@@ -255,7 +255,7 @@
             Controls.Add(ButtonFinishRace);
             Controls.Add(FinishRunner);
             Controls.Add(label5);
-            Controls.Add(textBox2);
+            Controls.Add(Input_End);
             Controls.Add(label6);
             Controls.Add(label4);
             Controls.Add(label3);
@@ -285,7 +285,7 @@
         private Label label4;
         private Button FinishRunner;
         private Label label5;
-        private TextBox textBox2;
+        private TextBox Input_End;
         private Label label6;
         private Button ButtonFinishRace;
         private Label TitleLabel;
