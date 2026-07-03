@@ -22,7 +22,8 @@ namespace QuickTrack
 				filePath = Path.Combine(directory, "runnerData" + safeTimestamp + ".json");
                 // Sets fileMade to true so that it doesn't make a new file every time a runner is added, just updates the same file
                 fileMade = true;
-			}
+				SerializingSaving(name);
+            }
 			else
 			{
 				string jsonString = JsonSerializer.Serialize(new { Name = name, Position, Time = ElapsedTime });
