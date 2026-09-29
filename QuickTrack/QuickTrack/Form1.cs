@@ -6,12 +6,15 @@ namespace QuickTrack
 
         public Form1()
         {
+            // Prevent resize handler from running before initialization is complete
+            _initializationComplete = false;
             InitializeComponent();
             originalFormSize = this.Size;
             foreach (Control control in this.Controls)
             {
                 ControlBounds[control] = control.Bounds;
             }
+            _initializationComplete = true;
         }
         private void Form1_Load(object sender, EventArgs e)
         {
@@ -85,9 +88,12 @@ namespace QuickTrack
 
         private Size originalFormSize;
         private Dictionary<Control, Rectangle> ControlBounds = new Dictionary<Control, Rectangle>();
+        private bool _initializationComplete;
 
         private void Form1_Resize(object sender, EventArgs e)
         {
+            if (!_initializationComplete)
+                return;
             float xRatio = (float)this.Size.Width / originalFormSize.Width;
             float yRatio = (float)this.Size.Height / originalFormSize.Height;
             foreach (Control control in this.Controls)
