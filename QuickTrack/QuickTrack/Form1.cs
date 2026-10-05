@@ -61,6 +61,7 @@ namespace QuickTrack
 
         private void button3_Click(object sender, EventArgs e)
         {
+            EndRunner(Input_End.Text);
             Input_End.Text = "";
         }
 
