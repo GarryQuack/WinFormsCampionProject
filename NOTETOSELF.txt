@@ -1,1 +1,1 @@
-ADD FILE BROWSER INCASE OF CRASH OR SENDING FILE
+Ah yk what this is confusing, idk why it you have to sometimes delete the obj folder before it builds properly.
